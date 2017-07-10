@@ -1,0 +1,37 @@
+<td-layout #layout [mode]="side" [opened]="false" sidenavWidth="250px">
+  
+  <div td-sidenav-content>
+    Main sidenav content
+  </div>
+
+  <td-navigation-drawer 
+    title="SiipapaRx"
+    color="primary"
+    navigationRoute= "/"
+    logo="assets:siipap-rx2" 
+    sidenavTitle="{{(modulo$ | async)?.nombre}}" 
+    name="Ruben Cancino" 
+    email="rubencancino6@gmail.com" flex>
+
+    <md-nav-list dense>
+      <sx-sidenav (selection)="layout.close()" 
+        [routes]="navegacion$ | async">
+      </sx-sidenav>
+    </md-nav-list>
+    
+    <div td-navigation-drawer-menu>
+      <md-nav-list>
+        <a *ngFor="let item of usermenu" md-list-item 
+          (click)="layout.close()" 
+          [routerLink]="[item.route]">
+          <md-icon>{{item.icon}}</md-icon>{{item.title}}
+        </a>
+      </md-nav-list>
+    </div>
+  </td-navigation-drawer>
+
+  <router-outlet></router-outlet>
+
+  
+  
+</td-layout>
