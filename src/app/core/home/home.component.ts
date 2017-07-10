@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 	    nombre: 'SIIPAP-Rx ',
 	    descripcion: 'Sistema de administración SIIPAP Rx cloud service', 
 	    image: "url('https://static.pexels.com/photos/265087/pexels-photo-265087.jpeg)"
-	});
+	  });
    }
 
   ngOnInit() {}

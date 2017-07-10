@@ -20,7 +20,7 @@
     </md-nav-list>
     
     <div td-navigation-drawer-menu>
-      <md-nav-list>
+      <md-nav-list dense>
         <a *ngFor="let item of usermenu" md-list-item 
           (click)="layout.close()" 
           [routerLink]="[item.route]">
