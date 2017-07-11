@@ -10,7 +10,7 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       { path: 'home', component: HomeComponent},
-      // { path: 'catalogos', loadChildren: './catalogos/catalogos.module#CatalogosModule'},
+      { path: 'catalogos', loadChildren: './catalogos/catalogos.module#CatalogosModule'},
       // { path: 'productos', loadChildren: './productos/productos.module#ProductosModule'},
       // { path: 'proveedores', loadChildren: './proveedores/proveedores.module#ProveedoresModule'},
       // { path: 'compras', loadChildren:'./compras/compras.module#ComprasModule'},

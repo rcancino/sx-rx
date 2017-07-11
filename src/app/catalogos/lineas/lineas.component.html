@@ -1,0 +1,48 @@
+<md-card>
+  <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+    <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+      <span class="md-title">Catálogo de líneas</span>
+    </span>
+    <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Filtrar" (searchDebounce)="search($event)" flex>
+    </td-search-box>
+    <span>
+      <button md-icon-button [mdMenuTriggerFor]="toolbarMenu"><md-icon>more_vert</md-icon></button>
+      <md-menu #toolbarMenu="mdMenu">
+        <button md-menu-item>
+          <md-icon>settings</md-icon>
+          <span>Configuración</span>
+        </button>
+      </md-menu>
+    </span>
+  </div>
+  <md-divider></md-divider>
+  <md-list dense>
+    <md-list-item>
+      <md-icon md-list-avatar>apps</md-icon>
+      <h3 md-line>Nombre</h3>
+      <span flex></span>
+    </md-list-item>
+
+    <md-divider></md-divider>
+    <ng-template let-item let-last="last" ngFor [ngForOf]="filtradas$ | async">
+      <md-list-item >
+        <md-icon md-list-avatar>dns</md-icon>
+        <h3 md-line > {{item.linea}} </h3>
+        <p md-line> Modificado {{item.lastUpdated | date:'short'}}</p>
+        <p md-line [ngClass]="{'tc-green-700':item.activa,'tc-dark-red-500':!item.activa}">  {{item.activa ? 'Activa' : 'Inactivo'}}</p>
+        <button md-icon-button (click)="showInfo(item)">
+          <md-icon>info</md-icon>
+        </button>
+        <button md-icon-button (click)="edit(item)">
+          <md-icon>edit</md-icon>
+        </button>
+        <span flex></span>
+        
+        
+      </md-list-item>
+      <md-divider *ngIf="!last" md-inset></md-divider>
+    </ng-template>
+  </md-list>
+  <md-divider></md-divider>
+  
+</md-card>
