@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SxStoreModule } from "./store/sx-store.module";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpModule,
     CoreModule,
+    SxStoreModule,
     AppRoutingModule,
     
   ],

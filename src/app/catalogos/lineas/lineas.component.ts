@@ -4,6 +4,7 @@ import { LINEAS } from '../shared/db-data';
 import { Observable } from "rxjs/Observable";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Subject } from "rxjs/Subject";
+import * as _ from 'lodash';
 
 @Component({
   selector: 'sx-lineas',
@@ -19,6 +20,7 @@ export class LineasComponent implements OnInit {
 
   constructor() { 
     this.lineas$ = Observable.of(LINEAS);
+    
     // this.search$
     //   .asObservable()
     //   .subscribe(term => console.log('Filter term: ', term))
