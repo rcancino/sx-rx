@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 
-import { LineasService } from "../store/services/lineas.service";
-
-
+import { LineasService } from '../store/services/lineas.service';
 
 @NgModule({
-  imports: [LineasService],
-  exports: [LineasService],
+  imports: [],
+  exports: [],
   declarations: [],
-  providers: [],
+  providers: [LineasService],
 })
 export class SxStoreModule { }
