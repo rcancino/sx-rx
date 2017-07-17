@@ -7,6 +7,12 @@ import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import {Store} from '@ngrx/store';
 import * as fromRoot from '../../store';
+import {environment} from '../../../environments/environment';
+import {Linea} from '../../models/linea';
+// import {Http} from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'sx-lineas',
@@ -15,34 +21,24 @@ import * as fromRoot from '../../store';
 })
 export class LineasComponent implements OnInit {
 
-  lineas = LINEAS;
+  lineas: Array<Linea> = undefined;
   lineas$: Observable<Array<any>>;
   filtradas$: Observable<Array<any>>;
   search$ = new Subject<string>();
 
 
-  constructor(private store: Store<fromRoot.State>) {
+  constructor(private store: Store<fromRoot.State>, private http: HttpClient) {
     this.lineas$ = store.select(fromRoot.getLineasEntities);
-
-    // this.search$
-    //   .asObservable()
-    //   .subscribe(term => console.log('Filter term: ', term))
   }
 
   ngOnInit() {
-    // this.filtradas$ = this.search$
-    //   .withLatestFrom(value => this.lineas
-    //     .filter( it => it.linea.toLocaleLowerCase().startsWith(value.toLocaleLowerCase())))
-
-    // this.filtradas$ = this.search$
-    //   .withLatestFrom(this.lineas$,(term,lineas) => {
-    //     return lineas;
-    //   });
-
-    this.filtradas$ = Observable.combineLatest(this.lineas$, this.search$, (lineas,term) => {
+    this.filtradas$ = Observable.combineLatest(this.lineas$, this.search$, (lineas, term) => {
       return lineas;
     });
-    this.search$.next('');
+    this.http.get<Linea>('api/lineas')
+      .subscribe(lineas => {
+        console.log(lineas);
+      });
   }
 
 

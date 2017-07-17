@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { MdIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
-//import * as moment from 'moment';
-
 
 @Component({
   selector: 'sx-root',
@@ -10,10 +8,10 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
+
   constructor(private iconRegistry: MdIconRegistry,
               private domSanitizer: DomSanitizer,
-              ){
+              ) {
     this.iconRegistry.addSvgIconInNamespace('assets', 'teradata',
       this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/teradata.svg'));
     this.iconRegistry.addSvgIconInNamespace('assets', 'github',
@@ -36,8 +34,8 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/siipap-rx2.svg'));
     this.iconRegistry.addSvgIconInNamespace('assets', 'paper',
       this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/paper.svg'));
-      
+
   }
 
-  
+
 }
