@@ -2,8 +2,8 @@ import "rxjs/add/observable/of";
 import "rxjs/add/observable/throw";
 import { EffectsRunner, EffectsTestingModule } from "@ngrx/effects/testing";
 import { fakeAsync, TestBed, tick } from "@angular/core/testing";
-import { LineasEffects } from "../effects/lineas.effects";
-import { LineasService } from "../services/lineas.service";
+import { LineasEffects } from "./lineas.effects";
+import { LineasService } from "./lineas.service";
 import { Observable } from "rxjs/Observable";
 
 describe('LineasEffects', () => {

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
+import {LineasService} from './lineas/lineas.service';
 
-import { LineasService } from '../store/services/lineas.service';
+
 
 @NgModule({
   imports: [],

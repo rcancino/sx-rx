@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
-import { LineasService } from '../services/lineas.service';
+import { LineasService } from './lineas.service';
 
 describe('Service: LineasService', () => {
   let service: LineasService = null;

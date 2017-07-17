@@ -5,6 +5,8 @@ import { LINEAS } from '../shared/db-data';
 import { Observable } from 'rxjs/Observable';
 
 import * as _ from 'lodash';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../store';
 
 @Component({
   selector: 'sx-lineas',
@@ -19,8 +21,8 @@ export class LineasComponent implements OnInit {
   search$ = new Subject<string>();
 
 
-  constructor() {
-    this.lineas$ = Observable.of(LINEAS);
+  constructor(private store: Store<fromRoot.State>) {
+    this.lineas$ = store.select(fromRoot.getLineasEntities);
 
     // this.search$
     //   .asObservable()

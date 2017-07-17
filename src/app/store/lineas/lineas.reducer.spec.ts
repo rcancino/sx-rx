@@ -1,5 +1,5 @@
-import { reducer } from '../reducers/lineas.reducer';
-import * as fromLineas from '../reducers/lineas.reducer';
+import { reducer } from './lineas.reducer';
+import * as fromLineas from './lineas.reducer';
 
 describe('LineasReducer', () => {
 
