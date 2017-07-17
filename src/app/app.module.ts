@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SxStoreModule } from "./store/sx-store.module";
+import { SxStoreModule } from './store/sx-store.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { SxStoreModule } from "./store/sx-store.module";
     CoreModule,
     SxStoreModule,
     AppRoutingModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
