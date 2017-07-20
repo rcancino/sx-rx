@@ -6,7 +6,7 @@ import {Linea} from '../../models/linea';
 @Injectable()
 export class LineasService {
 
-  readonly url = 'api/lineas';
+  readonly url = 'https://localhost:9090/siipapx/api/lineas';
 
   constructor(private http: Http) { }
 

@@ -7,20 +7,19 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import * as _ from 'lodash';
+
 @Injectable()
 export class LineasEffects {
   constructor(
     private lineasService: LineasService,
     private actions$: Actions
   ) { }
-  /*
-  @Effect() get$ = this.actions$
-      .ofType(lineas.LOAD)
-      .switchMap(payload => this.lineasService.get()
-        // If successful, dispatch success action with result
-        .map(data => ({ type: lineas.LOAD_SUCCESS, payload: data }))
-        // If request fails, dispatch failed action
-        .catch(() => Observable.of({ type: lineas.LOAD_FAIL}))
-      );
-      */
+
+  @Effect() lineas$ = this.actions$
+    .ofType(lineas.LOAD)
+    .switchMap(payload => this.lineasService.get()
+      .map(data => new lineas.LoadSuccessAction(data))
+      .catch(error => Observable.of(new lineas.LoadFailAction(error)))
+    );
 }

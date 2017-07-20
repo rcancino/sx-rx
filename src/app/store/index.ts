@@ -40,13 +40,23 @@ import { combineReducers } from '@ngrx/store';
  * notation packages up all of the exports into a single object.
  */
 import * as fromLineas from './lineas/lineas.reducer';
+import * as fromModulos from './modulos/modulos.reducer';
+import * as fromMarcas from './marcas/marcas.reducer';
+import * as fromClases from './clases/clases.reducer';
+import * as fromProveedores from './proveedores/proveedores.reducer';
+import * as fromProductos from './productos/productos.reducer';
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
  * our top level state interface is just a map of keys to inner state types.
  */
 export interface State {
+  modulos: fromModulos.State
   lineas: fromLineas.State
+  marcas: fromMarcas.State
+  clases: fromClases.State
+  proveedores: fromProveedores.State
+  productos: fromProductos.State
   router: fromRouter.RouterState;
 }
 
@@ -58,7 +68,12 @@ export interface State {
  * the result from right to left.
  */
 const reducers = {
+  modulos: fromModulos.reducer,
   lineas: fromLineas.reducer,
+  marcas: fromMarcas.reducer,
+  clases: fromClases.reducer,
+  proveedores: fromProveedores.reducer,
+  productos: fromProductos.reducer,
   router: fromRouter.routerReducer,
 };
 
@@ -76,17 +91,8 @@ export function reducer(state: any, action: any) {
 /**
  * A selector function is a map function factory. We pass it parameters and it
  * returns a function that maps from the larger state tree into a smaller
- * piece of state. This selector simply selects the `books` state.
- *
+ * piece of state.
  * Selectors are used with the `select` operator.
- *
- * ```ts
- * class MyComponent {
- * 	constructor(state$: Observable<State>) {
- * 	  this.booksState$ = state$.select(getBooksState);
- * 	}
- * }
- * ```
  */
 export const getLineasState = (state: State) => state.lineas;
 
@@ -101,3 +107,23 @@ export const getLineasState = (state: State) => state.lineas;
  * pieces of state.
  */
 export const getLineasEntities = createSelector(getLineasState, fromLineas.getEntities);
+
+/** Modulos  selectors **/
+export const getModulosState = (state: State) => state.modulos;
+export const getCurrentModulo = createSelector(getModulosState, fromModulos.getCurrentModulo);
+
+/** Marcas selectors **/
+export const getMarcasState = (state: State) => state.marcas;
+export const getMarcasEntities = createSelector(getMarcasState, fromMarcas.getEntities);
+
+/** Clases selectors **/
+export const getClasesState = (state: State) => state.clases;
+export const getClasesEntities = createSelector(getClasesState, fromClases.getEntities);
+
+/** Proveedores selectors **/
+export const getProveedoresState = (state: State) => state.proveedores;
+export const getProveedores = createSelector(getProveedoresState, fromProveedores.getEntities);
+
+/** Productos selectors **/
+export const getProductosState = (state: State) => state.productos;
+export const getProductos = createSelector(getProductosState, fromProductos.getEntities);

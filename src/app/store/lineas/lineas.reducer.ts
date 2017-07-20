@@ -5,13 +5,13 @@ import * as _ from 'lodash';
 
 export interface State {
   loading: boolean;
-  entities: { [id: string]: Linea };
+  entities: Linea[];
   result: string[];
 }
 
 export const initialState: State = {
   loading: false,
-  entities: {},
+  entities: undefined,
   result: []
 }
 
@@ -28,6 +28,7 @@ export function reducer(state = initialState, action: lineas.Actions): State {
 
       return {
         ...state,
+        entities: action.payload,
         loading: false,
       };
     }
