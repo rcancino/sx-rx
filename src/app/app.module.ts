@@ -19,8 +19,8 @@ import { SxStoreModule } from './store/sx-store.module';
     HttpModule,
     HttpClientModule,
     CoreModule,
-    SxStoreModule,
     AppRoutingModule,
+    SxStoreModule,
 
   ],
   providers: [],

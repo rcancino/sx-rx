@@ -45,6 +45,8 @@ import * as fromMarcas from './marcas/marcas.reducer';
 import * as fromClases from './clases/clases.reducer';
 import * as fromProveedores from './proveedores/proveedores.reducer';
 import * as fromProductos from './productos/productos.reducer';
+import * as fromCompras from './compras/compras.reducer';
+import {Compra} from '../models/compra';
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
@@ -57,6 +59,7 @@ export interface State {
   clases: fromClases.State
   proveedores: fromProveedores.State
   productos: fromProductos.State
+  compras: fromCompras.State
   router: fromRouter.RouterState;
 }
 
@@ -74,6 +77,7 @@ const reducers = {
   clases: fromClases.reducer,
   proveedores: fromProveedores.reducer,
   productos: fromProductos.reducer,
+  compras: fromCompras.reducer,
   router: fromRouter.routerReducer,
 };
 
@@ -127,3 +131,6 @@ export const getProveedores = createSelector(getProveedoresState, fromProveedore
 /** Productos selectors **/
 export const getProductosState = (state: State) => state.productos;
 export const getProductos = createSelector(getProductosState, fromProductos.getEntities);
+
+export const getComprasState = (state: State) => state.compras;
+export const getComprasPendientes = createSelector(getComprasState, fromCompras.getPendientes);

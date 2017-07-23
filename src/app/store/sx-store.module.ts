@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
+import {RouterStoreModule} from '@ngrx/router-store';
 
 import { reducer } from './index'
 import {LineasService} from './lineas/lineas.service';
@@ -13,6 +14,9 @@ import {ProveedoresEffects} from './proveedores/proveedores.effects';
 import {ProveedoresService} from './proveedores/proveedores.service';
 import {ProductosEffects} from './productos/productos.effects';
 import {ProductosService} from './productos/productos.service';
+import {ComprasService} from './compras/compras.service';
+import {ComprasEffects} from './compras/compras.effects';
+
 
 
 @NgModule({
@@ -26,6 +30,11 @@ import {ProductosService} from './productos/productos.service';
      */
     StoreModule.provideStore(reducer),
     /**
+     * @ngrx/router-store keeps router state up-to-date in the store and uses
+     * the store as the single source of truth for the router's state.
+     */
+    RouterStoreModule.connectRouter(),
+    /**
      * EffectsModule.run() sets up the effects class to be initialized
      * immediately when the application starts.
      *
@@ -36,9 +45,10 @@ import {ProductosService} from './productos/productos.service';
     EffectsModule.run(ClasesEffects),
     EffectsModule.run(ProveedoresEffects),
     EffectsModule.run(ProductosEffects),
+    EffectsModule.run(ComprasEffects)
   ],
   exports: [],
   declarations: [],
-  providers: [LineasService, MarcasService, ClasesService, ProveedoresService, ProductosService],
+  providers: [LineasService, MarcasService, ClasesService, ProveedoresService, ProductosService, ComprasService],
 })
 export class SxStoreModule { }

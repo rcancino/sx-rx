@@ -1,0 +1,51 @@
+<td-layout-nav-list #navList
+      [color]="color"
+      [opened]="media.registerQuery('gt-sm') | async"
+      [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'over'"
+      [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '250px' : '100%'">
+
+  <div td-sidenav-toolbar-content layout="row" layout-align="start center">
+    <button md-icon-button tdLayoutToggle>
+      <md-icon>menu</md-icon>
+    </button>
+    <md-icon [routerLink]="['/']" class="md-icon-logo cursor-pointer" svgIcon="assets:siipap-rx2"></md-icon>
+  </div>
+
+  <div td-toolbar-content layout="row" layout-align="start center" flex>
+
+    <button md-icon-button tdLayoutNavListOpen [hideWhenOpened]="true">
+      <md-icon>arrow_back</md-icon>
+    </button>
+
+    <span>{{header}}</span>
+    <span flex></span>
+    <sx-modulo-label></sx-modulo-label>
+    <button md-icon-button><md-icon >settings</md-icon></button>
+    <button md-icon-button><md-icon >more_vert</md-icon></button>
+  </div>
+
+  <md-nav-list td-sidenav-content [tdLayoutNavListClose]="!media.query('gt-sm')">
+    <ng-template let-item let-last="last" ngFor [ngForOf]="navmenu">
+      <a md-list-item
+         md-ripple class="block relative"
+         [routerLinkActive]="['active']"
+         [routerLink]="item.route"
+         [routerLinkActiveOptions]="{exact:false}">
+        <md-icon md-list-avatar>{{item.icon}}</md-icon>
+        <h3 md-line> {{item.title}} </h3>
+        <p md-line >{{item?.description}}</p>
+      </a>
+      <md-divider md-inset *ngIf="!last"></md-divider>
+    </ng-template>
+  </md-nav-list>
+
+  <!--<div tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+    <router-outlet></router-outlet>
+  </div>-->
+  <router-outlet></router-outlet>
+
+  <td-layout-footer [color]="color">
+    <sx-page-footer></sx-page-footer>
+  </td-layout-footer>
+
+</td-layout-nav-list>

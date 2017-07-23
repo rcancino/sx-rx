@@ -10973,5 +10973,390 @@
       "sw2": 8110,
       "unidad": "PZA"
     }
+  ],
+  "compras": [
+    {
+      "id": "297ebb755c900204015c900c7ee601f4",
+      "centralizada": false,
+      "comentario": "HP 1263 Alto K",
+      "consolidada": false,
+      "entrega": "2017-08-20T05:00:00Z",
+      "especial": false,
+      "fecha": "2017-06-03T05:00:00Z",
+      "folio": 1263,
+      "importeBruto": 0,
+      "importeDescuento": 0,
+      "importeNeto": 0,
+      "impuestos": 0,
+      "nacional": false,
+      "partidas": [
+        {
+          "id": "297ebb755c900204015c900c7ee801f5"
+        },
+        {
+          "id": "297ebb755c900204015c900c7ee801f6"
+        },
+        {
+          "id": "297ebb755c900204015c900c7ee901f7"
+        },
+        {
+          "id": "297ebb755c900204015c900c7eea01f8"
+        },
+        {
+          "id": "297ebb755c900204015c900c7eeb01f9"
+        },
+        {
+          "id": "297ebb755c900204015c900c7eec01fa"
+        },
+        {
+          "id": "297ebb755c900204015c900c7eec01fb"
+        },
+        {
+          "id": "297ebb755c900204015c900c7eed01fc"
+        },
+        {
+          "id": "297ebb755c900204015c900c7eee01fd"
+        },
+        {
+          "id": "297ebb755c900204015c900c7eef01fe"
+        },
+        {
+          "id": "297ebb755c900204015c900c7ef001ff"
+        },
+        {
+          "id": "297ebb755c900204015c900c7ef00200"
+        },
+        {
+          "id": "297ebb755c900204015c900c7ef10201"
+        }
+      ],
+      "pendiente": true,
+      "proveedor": "IMPAP, S.A DE C.V.",
+      "sucursal": "OFICINAS",
+      "sw2": "8a8a8192-5c6e859b-015c-6e8e230c-0002",
+      "tipoDeCambio": 1,
+      "total": 0,
+      "modificado": "2017-06-09T22:29:31-0500"
+    },
+    {
+      "id": "297ebb755c900204015c900c7fda0202",
+      "centralizada": false,
+      "comentario": "COPSBS-1264",
+      "consolidada": false,
+      "entrega": "2017-10-02T05:00:00Z",
+      "especial": false,
+      "fecha": "2017-06-03T05:00:00Z",
+      "folio": 1264,
+      "importeBruto": 0,
+      "importeDescuento": 0,
+      "importeNeto": 0,
+      "impuestos": 0,
+      "nacional": false,
+      "partidas": [
+        {
+          "id": "297ebb755c900204015c900c7fdb0203"
+        },
+        {
+          "id": "297ebb755c900204015c900c7fdb0204"
+        },
+        {
+          "id": "297ebb755c900204015c900c7fdc0205"
+        },
+        {
+          "id": "297ebb755c900204015c900c7fdd0206"
+        },
+        {
+          "id": "297ebb755c900204015c900c7fde0207"
+        },
+        {
+          "id": "297ebb755c900204015c900c7fdf0208"
+        },
+        {
+          "id": "297ebb755c900204015c900c7fdf0209"
+        },
+        {
+          "id": "297ebb755c900204015c900c7fe0020a"
+        }
+      ],
+      "pendiente": true,
+      "proveedor": "IMPAP, S.A DE C.V.",
+      "sucursal": "OFICINAS",
+      "sw2": "8a8a8192-5c6e859b-015c-6e90dd31-0010",
+      "tipoDeCambio": 1,
+      "total": 0,
+      "modificado": "2017-06-09T22:29:17-0500"
+    },
+    {
+      "id": "297ebb755c900204015c900c80af020b",
+      "centralizada": false,
+      "comentario": "COPSBS2C-1265",
+      "consolidada": false,
+      "entrega": "2017-10-02T05:00:00Z",
+      "especial": false,
+      "fecha": "2017-06-03T05:00:00Z",
+      "folio": 1265,
+      "importeBruto": 0,
+      "importeDescuento": 0,
+      "importeNeto": 0,
+      "impuestos": 0,
+      "nacional": false,
+      "partidas": [
+        {
+          "id": "297ebb755c900204015c900c80b0020c"
+        },
+        {
+          "id": "297ebb755c900204015c900c80b0020d"
+        },
+        {
+          "id": "297ebb755c900204015c900c80b1020e"
+        },
+        {
+          "id": "297ebb755c900204015c900c80b2020f"
+        },
+        {
+          "id": "297ebb755c900204015c900c80b20210"
+        },
+        {
+          "id": "297ebb755c900204015c900c80b30211"
+        }
+      ],
+      "pendiente": true,
+      "proveedor": "IMPAP, S.A DE C.V.",
+      "sucursal": "OFICINAS",
+      "sw2": "8a8a8192-5c6e859b-015c-6e92ce37-0019",
+      "tipoDeCambio": 1,
+      "total": 0,
+      "modificado": "2017-06-09T22:29:31-0500"
+    },
+    {
+      "id": "297ebb755c900204015c900c81840212",
+      "centralizada": false,
+      "comentario": "POL1266 POLYPAP",
+      "consolidada": false,
+      "entrega": "2017-09-15T05:00:00Z",
+      "especial": false,
+      "fecha": "2017-06-03T05:00:00Z",
+      "folio": 1266,
+      "importeBruto": 0,
+      "importeDescuento": 0,
+      "importeNeto": 0,
+      "impuestos": 0,
+      "nacional": false,
+      "partidas": [
+        {
+          "id": "297ebb755c900204015c900c81850213"
+        },
+        {
+          "id": "297ebb755c900204015c900c81860214"
+        },
+        {
+          "id": "297ebb755c900204015c900c81870215"
+        },
+        {
+          "id": "297ebb755c900204015c900c81870216"
+        },
+        {
+          "id": "297ebb755c900204015c900c81880217"
+        }
+      ],
+      "pendiente": true,
+      "proveedor": "IMPAP, S.A DE C.V.",
+      "sucursal": "OFICINAS",
+      "sw2": "8a8a8192-5c6e859b-015c-6e9480c9-0020",
+      "tipoDeCambio": 1,
+      "total": 0,
+      "modificado": "2017-06-09T22:29:17-0500"
+    },
+    {
+      "id": "297ebb755c900204015c900c83070219",
+      "centralizada": false,
+      "comentario": "KOALA IMPORS",
+      "consolidada": false,
+      "entrega": "2017-06-03T05:00:00Z",
+      "especial": false,
+      "fecha": "2017-06-03T05:00:00Z",
+      "folio": 7464,
+      "importeBruto": 0,
+      "importeDescuento": 0,
+      "importeNeto": 0,
+      "impuestos": 0,
+      "nacional": true,
+      "partidas": [
+        {
+          "id": "297ebb755c900204015c900c8308021a"
+        }
+      ],
+      "pendiente": true,
+      "proveedor": "GRUPO PONDEROSA  SA  DE  CV",
+      "sucursal": "ANDRADE",
+      "sw2": "8a8a82f8-5c6e39f6-015c-6e4ad623-0002",
+      "tipoDeCambio": 1,
+      "total": 0,
+      "modificado": "2017-06-09T22:29:18-0500"
+    },
+    {
+      "id": "297ebb755c900204015c900c85b0022c",
+      "centralizada": false,
+      "comentario": "COPMMK 1267",
+      "consolidada": false,
+      "entrega": "2017-08-28T05:00:00Z",
+      "especial": false,
+      "fecha": "2017-06-06T05:00:00Z",
+      "folio": 1267,
+      "importeBruto": 0,
+      "importeDescuento": 0,
+      "importeNeto": 0,
+      "impuestos": 0,
+      "nacional": false,
+      "partidas": [
+        {
+          "id": "297ebb755c900204015c900c85b1022d"
+        },
+        {
+          "id": "297ebb755c900204015c900c85b2022e"
+        }
+      ],
+      "pendiente": true,
+      "proveedor": "IMPAP, S.A DE C.V.",
+      "sucursal": "OFICINAS",
+      "sw2": "8a8a8192-5c7e0a8b-015c-7f7af429-0002",
+      "tipoDeCambio": 1,
+      "total": 0,
+      "modificado": "2017-06-09T22:29:31-0500"
+    },
+    {
+      "id": "297ebb755c900204015c900c87840232",
+      "centralizada": false,
+      "consolidada": false,
+      "entrega": "2017-06-06T05:00:00Z",
+      "especial": false,
+      "fecha": "2017-06-06T05:00:00Z",
+      "folio": 801866,
+      "importeBruto": 0,
+      "importeDescuento": 0,
+      "importeNeto": 0,
+      "impuestos": 0,
+      "nacional": true,
+      "partidas": [
+        {
+          "id": "297ebb755c900204015c900c87850233"
+        },
+        {
+          "id": "297ebb755c900204015c900c87860234"
+        },
+        {
+          "id": "297ebb755c900204015c900c87860235"
+        },
+        {
+          "id": "297ebb755c900204015c900c87870236"
+        },
+        {
+          "id": "297ebb755c900204015c900c87870237"
+        }
+      ],
+      "pendiente": true,
+      "proveedor": "GRUPO PONDEROSA  SA  DE  CV",
+      "sucursal": "CALLE 4",
+      "sw2": "8a8a819c-5c7fada8-015c-7fbf253f-0002",
+      "tipoDeCambio": 1,
+      "total": 0,
+      "modificado": "2017-06-09T22:29:31-0500"
+    },
+    {
+      "id": "297ebb755c900204015c900c88450238",
+      "centralizada": false,
+      "consolidada": false,
+      "entrega": "2017-06-06T05:00:00Z",
+      "especial": false,
+      "fecha": "2017-06-06T05:00:00Z",
+      "folio": 801497,
+      "importeBruto": 0,
+      "importeDescuento": 0,
+      "importeNeto": 0,
+      "impuestos": 0,
+      "nacional": true,
+      "partidas": [
+        {
+          "id": "297ebb755c900204015c900c88450239"
+        },
+        {
+          "id": "297ebb755c900204015c900c8846023a"
+        },
+        {
+          "id": "297ebb755c900204015c900c8847023b"
+        },
+        {
+          "id": "297ebb755c900204015c900c8848023c"
+        }
+      ],
+      "pendiente": true,
+      "proveedor": "GRUPO PONDEROSA  SA  DE  CV",
+      "sucursal": "ANDRADE",
+      "sw2": "8a8a819c-5c7fada8-015c-7fc078e9-0008",
+      "tipoDeCambio": 1,
+      "total": 0,
+      "modificado": "2017-06-09T22:29:19-0500"
+    },
+    {
+      "id": "297ebb755c900204015c900c88f3023d",
+      "centralizada": false,
+      "consolidada": false,
+      "entrega": "2017-06-06T05:00:00Z",
+      "especial": false,
+      "fecha": "2017-06-06T05:00:00Z",
+      "folio": 803243,
+      "importeBruto": 0,
+      "importeDescuento": 0,
+      "importeNeto": 0,
+      "impuestos": 0,
+      "nacional": true,
+      "partidas": [
+        {
+          "id": "297ebb755c900204015c900c88f4023e"
+        },
+        {
+          "id": "297ebb755c900204015c900c88f4023f"
+        },
+        {
+          "id": "297ebb755c900204015c900c88f50240"
+        }
+      ],
+      "pendiente": true,
+      "proveedor": "GRUPO PONDEROSA  SA  DE  CV",
+      "sucursal": "TACUBA",
+      "sw2": "8a8a819c-5c7fada8-015c-7fc306c3-000c",
+      "tipoDeCambio": 1,
+      "total": 0,
+      "modificado": "2017-06-09T22:29:19-0500"
+    },
+    {
+      "id": "297ebb755c900204015c900c89870241",
+      "centralizada": false,
+      "consolidada": false,
+      "entrega": "2017-06-06T05:00:00Z",
+      "especial": false,
+      "fecha": "2017-06-06T05:00:00Z",
+      "folio": 8029,
+      "importeBruto": 0,
+      "importeDescuento": 0,
+      "importeNeto": 0,
+      "impuestos": 0,
+      "nacional": true,
+      "partidas": [
+        {
+          "id": "297ebb755c900204015c900c89880242"
+        },
+        {
+          "id": "297ebb755c900204015c900c89890243"
+        }
+      ],
+      "pendiente": true,
+      "proveedor": "GRUPO PONDEROSA  SA  DE  CV",
+      "sucursal": "TACUBA",
+      "sw2": "8a8a81e8-5c7db0ce-015c-7e714c07-000d",
+      "tipoDeCambio": 1,
+      "total": 0,
+      "modificado": "2017-06-09T22:29:19-0500"
+    }
   ]
 }

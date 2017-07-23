@@ -1,0 +1,30 @@
+
+<div layout="row">
+  <md-card flex>
+    <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+    <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+      <span class="md-title">Compras pendientes</span>
+    </span>
+      <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Filtrar" (searchDebounce)="search($event)" flex>
+      </td-search-box>
+      <span>
+      <button md-icon-button [mdMenuTriggerFor]="toolbarMenu"><md-icon>more_vert</md-icon></button>
+      <md-menu #toolbarMenu="mdMenu">
+        <button md-menu-item>
+          <md-icon>settings</md-icon>
+          <span>Configuración</span>
+        </button>
+      </md-menu>
+    </span>
+    </div>
+    <md-divider></md-divider>
+
+    <sx-compras-list [compras]="compras$ | async" (edit)="onEdit($event)" (info)="onInfo($event)"></sx-compras-list>
+
+    <md-divider></md-divider>
+
+  </md-card>
+  <div flex>
+    <router-outlet></router-outlet>
+  </div>
+</div>

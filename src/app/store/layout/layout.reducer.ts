@@ -4,12 +4,18 @@ export interface State {
   loading: boolean;
   entities: { [id: string]: any };
   result: string[];
+  sxNavList: {
+    opened: boolean
+  };
 }
 
 export const initialState: State = {
   loading: false,
   entities: {},
-  result: []
+  result: [],
+  sxNavList: {
+    opened: true
+  }
 }
 
 export function reducer(state = initialState, action: layout.Actions): State {

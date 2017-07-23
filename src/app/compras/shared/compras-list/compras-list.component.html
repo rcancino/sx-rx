@@ -1,0 +1,27 @@
+<md-list dense>
+  <ng-template let-compra let-last="last" ngFor [ngForOf]="compras">
+    <md-list-item>
+      <button md-mini-fab  md-list-avatar (click)="showInfo(compra.id)" class="bgc-deep-orange-A400" >
+        <span>{{compra.folio}}</span>
+      </button>
+
+      <h3 md-line>{{compra.proveedor}}</h3>
+
+      <p md-line>
+        <span class="tc-blue-A700">{{compra.sucursal}}</span>
+        <span> {{compra.fecha | date:'dd/MM/yyyy'}}</span>
+
+      </p>
+
+
+      <button md-icon-button (click)="editEntity(compra.id)">
+        <md-icon md-list-icon class="tc-green-700">edit</md-icon>
+      </button>
+      <span flex></span>
+
+
+    </md-list-item>
+    <md-divider md-inset *ngIf="!last"></md-divider>
+  </ng-template>
+
+</md-list>
