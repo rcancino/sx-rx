@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import {Store} from '@ngrx/store';
 
 import {Modulo} from '../models/modulo';
-import * as fromRoot from '../store'
+import * as fromRoot from '../reducers'
 
 @Component({
   selector: 'sx-catalogos-page',
@@ -31,7 +31,8 @@ export class CatalogosPageComponent implements OnInit, AfterViewInit {
     private store: Store<fromRoot.State>) {
 
     // Modulo actualmente seleccionado
-    this.modulo$ = store.select(fromRoot.getCurrentModulo)
+    // this.modulo$ = store.select(fromRoot.getCurrentModulo)
+    this.modulo$ = Observable.of({nombre: 'SX Compras'})
   }
 
   ngOnInit() {

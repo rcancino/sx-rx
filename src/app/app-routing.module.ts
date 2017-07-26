@@ -11,9 +11,9 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent},
       { path: 'catalogos', loadChildren: './catalogos/catalogos.module#CatalogosModule'},
-      { path: 'compras', loadChildren: './compras/compras.module#ComprasModule'},
+      /*{ path: 'compras', loadChildren: './compras/compras.module#ComprasModule'},
       { path: 'cxp', loadChildren: './cxp/cxp.module#CxpModule'},
-      { path: 'analisis', loadChildren: './analisis/analisis.module#AnalisisModule'},
+      { path: 'analisis', loadChildren: './analisis/analisis.module#AnalisisModule'},*/
       // { path: 'productos', loadChildren: './productos/productos.module#ProductosModule'},
       // { path: 'proveedores', loadChildren: './proveedores/proveedores.module#ProveedoresModule'},
       {

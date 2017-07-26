@@ -1,8 +1,8 @@
 /**
  * Created by ruben on 16/07/2017.
  */
-import { createSelector } from 'reselect';
-import { ActionReducer } from '@ngrx/store';
+
+import { ActionReducer, createSelector } from '@ngrx/store';
 import * as fromRouter from '@ngrx/router-store';
 import { environment } from '../../environments/environment';
 
@@ -14,7 +14,7 @@ import { environment } from '../../environments/environment';
  *
  * More: https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html
  */
-import { compose } from '@ngrx/core/compose';
+import { compose } from '@ngrx/store';
 
 /**
  * storeFreeze prevents state from being mutated. When mutation occurs, an
@@ -60,7 +60,7 @@ export interface State {
   proveedores: fromProveedores.State
   productos: fromProductos.State
   compras: fromCompras.State
-  router: fromRouter.RouterState;
+  router: fromRouter.RouterReducerState
 }
 
 /**
