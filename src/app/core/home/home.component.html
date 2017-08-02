@@ -1,33 +1,33 @@
 <td-layout-nav toolbarTitle="Sistema de administración SIIPAP Rx"     color="primary" navigationRoute="/">
-  
-  <button md-icon-button td-menu-button tdLayoutToggle> 
+
+  <button md-icon-button td-menu-button tdLayoutToggle>
     <md-icon>menu</md-icon>
   </button>
-  
-  
+
+
   <!-- <div td-toolbar-content layout="row" layout-align="start center" flex>
     <span hide-xs></span>
     <span flex ></span>
     <button md-icon-button > <md-icon>more_vert</md-icon></button>
   </div> -->
-  
+
   <div layout="row" *ngIf="application$ | async; else loadingPanel; let application">
-    
+
     <md-card >
       <md-card-title-group>
         <img md-card-lg-image src="https://static.pexels.com/photos/265087/pexels-photo-265087.jpeg">
         <md-card-title>{{application.nombre}}</md-card-title>
         <md-card-subtitle>{{application.descripcion}}</md-card-subtitle>
       </md-card-title-group>
-      
-      
+
+
       <md-divider></md-divider>
       <md-card-actions>
         <div layout="row" class="tc-grey-600">
           <button md-raised-button color="accent" class="push-bottom md-button-lg">Login</button>
         </div>
       </md-card-actions>
-      
+
     </md-card>
 
     <!-- <section class="bgc-blue-50" *ngIf="application$ | async; let modulo">
@@ -45,11 +45,11 @@
             </div>
             <div class="push-bottom-xl" hide-xs></div>
           </div>
-          <div flex="55" class="bg-cover" 
+          <div flex="55" class="bg-cover"
             style="background-image:url('https://static.pexels.com/photos/348323/pexels-photo-348323.jpeg');background-size:cover;">
           </div>
-          <div flex="55" 
-            class="bg-cover" 
+          <div flex="55"
+            class="bg-cover"
             [ngStyle]="{'background-size':'cover', 'background-image': modulo.image}">
           </div>
         </div>
@@ -57,7 +57,7 @@
 
   </div>
 
-  
+
 
   <ng-template  #loadingPanel>
     <div layout="col" fxLayout="column" class="bgc-blue-50">
@@ -66,8 +66,8 @@
       </div>
     </div>
   </ng-template>
-  
-  <!-- <td-layout-footer color="primary"> 
-    Footer (Pendiente)
-  </td-layout-footer> -->
+
+   <td-layout-footer color="primary">
+     <sx-page-footer></sx-page-footer>
+  </td-layout-footer>
 </td-layout-nav>

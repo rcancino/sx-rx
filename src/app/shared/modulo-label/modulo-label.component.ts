@@ -14,9 +14,10 @@ export class ModuloLabelComponent implements OnInit {
   moduloName$: Observable<string>;
 
   constructor(private  store: Store<fromRoot.State>) {
-    this.moduloName$ = this.store
+    /*this.moduloName$ = this.store
       .select(fromRoot.getCurrentModulo)
-      .map(modulo => modulo.nombre);
+      .map(modulo => modulo.nombre);*/
+    this.moduloName$ = Observable.of('Sx compras');
   }
 
   ngOnInit() {

@@ -12,11 +12,24 @@ import { ExistenciasComponent } from './existencias/existencias.component';
 import { ComprasListComponent } from './shared/compras-list/compras-list.component';
 import { CompraViewComponent } from './shared/compra-view/compra-view.component';
 
+import {ComprasService} from './services/compras.service';
+
 @NgModule({
   imports: [
     SharedModule,
     ComprasRoutingModule
   ],
-  declarations: [ComprasPageComponent, AtendidasComponent, PendientesComponent, DashboardComponent, AlcanceComponent, RecepcionesComponent, ExistenciasComponent, ComprasListComponent, CompraViewComponent]
+  declarations: [
+    ComprasPageComponent,
+    AtendidasComponent,
+    PendientesComponent,
+    DashboardComponent,
+    AlcanceComponent,
+    RecepcionesComponent,
+    ExistenciasComponent,
+    ComprasListComponent,
+    CompraViewComponent
+  ],
+  providers: [ComprasService]
 })
 export class ComprasModule { }

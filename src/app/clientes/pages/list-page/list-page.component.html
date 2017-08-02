@@ -1,0 +1,23 @@
+<sx-nav-page title="Catálogo de clientes">
+  <div layout-gt-sm="row" tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+
+    <div flex-gt-sm="60" >
+
+      <sx-clientes-serch-card
+        [clientes]="clientes$ | async"
+        [busy$]="loading$"
+        (showCliente)="onShow($event)" (search)="onSearch($event)">
+
+      </sx-clientes-serch-card>
+
+    </div>
+
+    <div flex-gt-sm="40">
+      <ng-container *ngIf="selected$ | async; let cliente">
+        <sx-cliente-card [cliente]="cliente"></sx-cliente-card>
+      </ng-container>
+
+    </div>
+
+  </div>
+</sx-nav-page>

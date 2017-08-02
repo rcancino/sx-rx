@@ -7,7 +7,7 @@ import {
   CovalentDataTableModule, CovalentMediaModule, CovalentLoadingModule,
   CovalentNotificationsModule, CovalentLayoutModule, CovalentMenuModule,
   CovalentPagingModule, CovalentSearchModule, CovalentStepsModule,
-  CovalentCommonModule, CovalentDialogsModule,
+  CovalentCommonModule, CovalentDialogsModule, CovalentMessageModule, CovalentExpansionPanelModule,
 } from '@covalent/core';
 import {
   MdButtonModule, MdCardModule, MdIconModule,
@@ -22,6 +22,10 @@ import {ModuloLabelComponent} from './modulo-label/modulo-label.component';
 import { PageToolbarComponent } from './page-toolbar/page-toolbar.component';
 import { PageFooterComponent } from './page-footer/page-footer.component';
 import { NavListPageComponent } from './nav-list-page/nav-list-page.component';
+import { NavPageComponent } from './nav-page/nav-page.component';
+import { AddressPipe } from './pipes/address.pipe';
+import { ModuleSelectorComponent } from './module-selector/module-selector.component';
+
 
 
 const FLEX_LAYOUT_MODULES: any[] = [
@@ -44,12 +48,16 @@ const COVALENT_MODULES: any[] = [
   CovalentDataTableModule, CovalentMediaModule, CovalentLoadingModule,
   CovalentNotificationsModule, CovalentLayoutModule, CovalentMenuModule,
   CovalentPagingModule, CovalentSearchModule, CovalentStepsModule,
-  CovalentCommonModule, CovalentDialogsModule,
+  CovalentCommonModule, CovalentDialogsModule, CovalentMessageModule, CovalentExpansionPanelModule
 ];
 
 const CHART_MODULES: any[] = [
   NgxChartsModule,
 ];
+
+const COMPONENTS: any[] = [
+  ModuleSelectorComponent,
+]
 
 @NgModule({
   imports: [
@@ -62,10 +70,13 @@ const CHART_MODULES: any[] = [
     FLEX_LAYOUT_MODULES,
   ],
   declarations: [
+    ...COMPONENTS,
     ModuloLabelComponent,
     PageToolbarComponent,
     PageFooterComponent,
     NavListPageComponent,
+    NavPageComponent,
+    AddressPipe
   ],
   exports: [
     ANGULAR_MODULES,
@@ -73,10 +84,13 @@ const CHART_MODULES: any[] = [
     COVALENT_MODULES,
     CHART_MODULES,
     FLEX_LAYOUT_MODULES,
+    COMPONENTS,
     ModuloLabelComponent,
     PageToolbarComponent,
     PageFooterComponent,
     NavListPageComponent,
+    NavPageComponent,
+    AddressPipe
   ]
 })
 export class SharedModule { }

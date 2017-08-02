@@ -6,7 +6,7 @@
 
   <td-navigation-drawer
     title="SiipapaRx"
-    color="primary"
+    color="accent"
     navigationRoute= "/"
     logo="assets:siipap-rx2"
     sidenavTitle="{{(modulo$ | async)?.nombre}}"
@@ -21,10 +21,11 @@
 
     <div td-navigation-drawer-menu>
       <md-nav-list dense>
-        <a *ngFor="let item of usermenu" md-list-item
-          (click)="layout.close()"
-          [routerLink]="[item.route]">
-          <md-icon>{{item.icon}}</md-icon>{{item.title}}
+        <a  md-list-item [routerLink]="['/users/account']">
+          <md-icon>tune</md-icon> Cuenta de acceso
+        </a>
+        <a  md-list-item (click)="logout()">
+          <md-icon>exit_to_app</md-icon> Salir del sistema
         </a>
       </md-nav-list>
     </div>

@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 /** ngrx stuff **/
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -16,8 +16,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { schema } from './db';
-import {LineasEffects} from "./store/lineas/lineas.effects";
-import {LineasService} from "./store/lineas/lineas.service";
+import {AuthModule} from './_auth/auth.module';
+import {AuthInterceptor} from './_auth/services/authInterceptor';
+import { GlobalErrorHandler } from './global-error-handler';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -27,7 +29,6 @@ import {LineasService} from "./store/lineas/lineas.service";
     BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
-    CoreModule,
     AppRoutingModule,
 
     /**
@@ -61,14 +62,28 @@ import {LineasService} from "./store/lineas/lineas.service";
      *
      * See: https://github.com/ngrx/platform/blob/master/docs/effects/api.md#forroot
      */
-    EffectsModule.forRoot([LineasEffects]),
+    EffectsModule.forRoot([]),
     /**
      * `provideDB` sets up @ngrx/db with the provided schema and makes the Database
      * service available.
      */
     DBModule.provideDB(schema),
+
+    CoreModule,
+
+    AuthModule.forRoot()
   ],
-  providers: [LineasService],
+  providers: [
+    [
+      { provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true
+      },
+      {
+        provide: ErrorHandler,
+        useClass: GlobalErrorHandler
+      }]
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

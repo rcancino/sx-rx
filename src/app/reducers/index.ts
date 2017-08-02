@@ -14,7 +14,6 @@ import { environment } from '../../environments/environment';
  */
 
 import * as fromLayout from '../core/store/layout/layout.reducer';
-import * as fromLineas from '../store/lineas/lineas.reducer';
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
@@ -22,7 +21,6 @@ import * as fromLineas from '../store/lineas/lineas.reducer';
  */
 export interface State {
   layout: fromLayout.State;
-  lineas: fromLineas.State;
 }
 
 /**
@@ -32,7 +30,6 @@ export interface State {
  */
 export const reducers: ActionReducerMap<State> = {
   layout: fromLayout.reducer,
-  lineas: fromLineas.reducer,
 };
 
 // console.log all actions
@@ -59,7 +56,4 @@ export const metaReducers: ActionReducer<any, any>[] = !environment.production
  */
 export const getLayoutState = createFeatureSelector<fromLayout.State>('layout');
 export const getShowSideNav = createSelector(getLayoutState, fromLayout.getShowSidenav);
-
-export const getLineasState = createFeatureSelector<fromLineas.State>('lineas');
-export const getLineasEntities = createSelector(getLineasState, fromLineas.getEntities)
 

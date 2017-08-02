@@ -1,0 +1,32 @@
+<md-card *tdLoading="'clientes-search'; type:'circle'; strategy:'overlay'; color:'accent'">
+  <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+
+    <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+      <span class="md-title">Notas de cargo</span>
+    </span>
+
+    <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Filtrar"
+                   (searchDebounce)="onSearch($event)" flex>
+    </td-search-box>
+
+    <span>
+      <button md-icon-button [mdMenuTriggerFor]="toolbarMenu"><md-icon>more_vert</md-icon></button>
+      <md-menu #toolbarMenu="mdMenu">
+        <button md-menu-item>
+          <md-icon>settings</md-icon>
+          <span>Configuración</span>
+        </button>
+      </md-menu>
+    </span>
+
+  </div>
+
+  <md-divider></md-divider>
+
+  <md-card-content >
+    <sx-notas-de-cargo-list [notas]="notas$ | async">
+    </sx-notas-de-cargo-list>
+
+  </md-card-content>
+
+</md-card>

@@ -16,7 +16,9 @@ import 'rxjs/add/operator/let';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/shareReplay';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/concat';

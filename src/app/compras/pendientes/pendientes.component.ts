@@ -4,8 +4,11 @@ import {Store} from '@ngrx/store';
 import {Router, ActivatedRoute} from '@angular/router';
 
 import {Compra} from '../../models/compra';
-import * as fromRoot from '../../store';
-import * as actions from '../../store/compras/compras.actions';
+import {ComprasService} from '../services/compras.service';
+
+
+// import * as fromRoot from '../../store';
+// import * as actions from '../../store/compras/compras.actions';
 
 
 
@@ -19,19 +22,20 @@ export class PendientesComponent implements OnInit {
   compras$: Observable<Compra[]>;
 
   constructor(
-    private store: Store<fromRoot.State>,
     private router: Router,
-    private route: ActivatedRoute) {
-    this.compras$ = store.select(fromRoot.getComprasPendientes);
+    private route: ActivatedRoute,
+    private comprasService: ComprasService) {
+    // this.compras$ = store.select(fromRoot.getComprasPendientes);
+
   }
 
   ngOnInit() {
-    this.store.dispatch(new actions.LoadAction());
+    this.compras$ = this.comprasService.list();
   }
 
   onInfo(compraId: number) {
     console.log('Info compra: ', compraId);
-    this.router.navigate(['show', compraId], {relativeTo: this.route});
+    // this.router.navigate(['show', compraId], {relativeTo: this.route});
   }
   onEdit(compraId: number) {
     console.log('Edit compra: ', compraId);

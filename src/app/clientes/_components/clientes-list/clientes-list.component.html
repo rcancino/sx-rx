@@ -1,0 +1,20 @@
+<md-list dense>
+  <ng-template let-cliente let-last="last" ngFor [ngForOf]="clientes">
+    <md-nav-list dense flex>
+      <a md-list-item (click)="show.emit(cliente)" >
+        <md-icon md-list-avatar color="accent">person</md-icon>
+        <h3 md-line> {{cliente.nombre}}</h3>
+        <span flex></span>
+        <span hide-xs flex="40" class="tc-deep-orange-700"> ({{cliente.rfc}})</span>
+        <span hide-xs flex [ngClass]="{'tc-green-700':cliente.activo}">{{cliente.activo ? 'Activo' : 'Suspendido'}}</span>
+        <span hide-xs flex="60" class="text-right md-body-1 tc-grey-500 pad-right">
+          {{cliente.lastUpdated | date: 'dd/MM/yyyy HH:mm'}}
+        </span>
+        <p md-line> Modificado: {{cliente.lastUpdated | date: 'dd/MM/yyyy HH:mm'}}</p>
+      </a>
+    </md-nav-list>
+
+    <md-divider md-inset *ngIf="!last"></md-divider>
+  </ng-template>
+
+</md-list>

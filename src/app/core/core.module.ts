@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+
 
 
 

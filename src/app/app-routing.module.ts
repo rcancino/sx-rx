@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainComponent } from './core/main/main.component';
 import { HomeComponent } from './core/home/home.component';
+import {AuthGuard} from './_auth/services/auth.gard';
+
 
 const routes: Routes = [
   {
@@ -11,18 +13,21 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent},
       { path: 'catalogos', loadChildren: './catalogos/catalogos.module#CatalogosModule'},
-      /*{ path: 'compras', loadChildren: './compras/compras.module#ComprasModule'},
+      { path: 'compras', loadChildren: './compras/compras.module#ComprasModule'},
       { path: 'cxp', loadChildren: './cxp/cxp.module#CxpModule'},
-      { path: 'analisis', loadChildren: './analisis/analisis.module#AnalisisModule'},*/
+      // { path: 'analisis', loadChildren: './analisis/analisis.module#AnalisisModule'},
       // { path: 'productos', loadChildren: './productos/productos.module#ProductosModule'},
       // { path: 'proveedores', loadChildren: './proveedores/proveedores.module#ProveedoresModule'},
+      { path: 'clientes', loadChildren: './clientes/clientes.module#ClientesModule'},
+      { path: 'cxc', loadChildren: './cxc/cxc.module#CxcModule'},
       {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
       },
       // { path: '**', component: PageNotFoundComponent }
-    ]
+    ],
+    canActivate: [AuthGuard],
 
   },
 
