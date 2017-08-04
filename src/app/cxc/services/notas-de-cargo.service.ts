@@ -9,7 +9,7 @@ import {environment} from '../../../environments/environment';
 @Injectable()
 export class NotasDeCargoService {
 
-  readonly apiUrl = environment.apiUrl + '/notasDeCredito';
+  readonly apiUrl = environment.apiUrl + '/notasDeCargo';
 
   constructor(private http: HttpClient) { }
 

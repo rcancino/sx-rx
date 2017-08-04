@@ -6,8 +6,11 @@ export class NotaDeCargo {
   cliente: Cliente;
   sucursal: Sucursal;
   fecha: string | Date;
+  usoCfdi?: string;
+  cargo: number;
   documento: string;
   importe: number;
   impuesto: number;
   total: number;
+  cartera: string;
 }

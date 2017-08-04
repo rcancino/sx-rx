@@ -1,0 +1,17 @@
+<div layout="row" >
+  <md-input-container flex="70">
+    <input mdInput [formControl]="control"
+           [placeholder]="placeholder"
+           [mdAutocomplete]="auto">
+
+  </md-input-container>
+
+  <button md-mini-fab [disabled]="!control.valid" (click)="addFactura()"><md-icon>check</md-icon></button>
+  <span flex></span>
+  <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayFn">
+    <md-option *ngFor="let factura of facturas" [value]="factura">
+      {{factura.tipoDocumento}} - {{factura.documento}} {{factura.fecha | date:'dd/MM/yyyy'}} {{ factura.cliente }}
+    </md-option>
+  </md-autocomplete>
+
+</div>

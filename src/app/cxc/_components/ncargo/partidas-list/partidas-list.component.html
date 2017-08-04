@@ -1,0 +1,29 @@
+<div [formGroup]="parent">
+  <md-list formArrayName="partidas">
+    <!--<h3 md-subheader>Partidas</h3>-->
+
+    <ng-template let-concepto let-index="index" let-last="last" ngFor [ngForOf]="partidas">
+      <a md-list-item>
+        <!--<md-icon md-list-avatar>layers</md-icon>-->
+        <md-icon md-list-icon>layers</md-icon>
+        <h3 md-line mdTooltip="{{concepto.conceptoSat | json}}">
+          {{concepto.cxc.tipoDocumento}}: {{concepto.cxc.documento}}
+          Total: {{concepto.cxc.total | currency:'USD':false }}
+
+        </h3>
+        <p md-line>
+          Fecha: {{concepto.cxc.fecha | date: 'dd/MM/yyyy'}}
+        </p>
+
+        <span flex></span>
+        <span flex="30" >{{concepto.importe | number:'2.2'}}</span>
+        <button md-icon-button (click)="delete.emit(index)">
+          <md-icon>delete</md-icon>
+        </button>
+      </a>
+      <md-divider *ngIf="!last" md-inset></md-divider>
+    </ng-template>
+
+  </md-list>
+</div>
+

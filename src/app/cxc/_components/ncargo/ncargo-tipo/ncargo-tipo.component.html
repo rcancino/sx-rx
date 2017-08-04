@@ -1,0 +1,7 @@
+<div layout [formGroup]="parent">
+  <md-select placeholder="Tipo" formControlName="tipo" flex>
+    <md-option *ngFor="let tipo of tipos" [value]="tipo.clave">
+      {{tipo.descripcion}}
+    </md-option>
+  </md-select>
+</div>

@@ -8,13 +8,14 @@ import {
   CovalentNotificationsModule, CovalentLayoutModule, CovalentMenuModule,
   CovalentPagingModule, CovalentSearchModule, CovalentStepsModule,
   CovalentCommonModule, CovalentDialogsModule, CovalentMessageModule, CovalentExpansionPanelModule,
+  CovalentJsonFormatterModule,
 } from '@covalent/core';
 import {
   MdButtonModule, MdCardModule, MdIconModule,
   MdListModule, MdMenuModule, MdTooltipModule,
   MdSlideToggleModule, MdInputModule, MdCheckboxModule,
   MdToolbarModule, MdSnackBarModule, MdSidenavModule,
-  MdTabsModule, MdSelectModule, MdChipsModule
+  MdTabsModule, MdSelectModule, MdChipsModule, MdAutocompleteModule, MdDatepickerModule, MdNativeDateModule
 } from '@angular/material';
 import { NgxChartsModule, } from '@swimlane/ngx-charts';
 
@@ -25,7 +26,8 @@ import { NavListPageComponent } from './nav-list-page/nav-list-page.component';
 import { NavPageComponent } from './nav-page/nav-page.component';
 import { AddressPipe } from './pipes/address.pipe';
 import { ModuleSelectorComponent } from './module-selector/module-selector.component';
-
+import { ComentarioFieldComponent } from './_fields/comentario-field/comentario-field.component';
+import { UsoCfdiFieldComponent } from './_fields/uso-cfdi-field/uso-cfdi-field.component';
 
 
 const FLEX_LAYOUT_MODULES: any[] = [
@@ -41,14 +43,15 @@ const MATERIAL_MODULES: any[] = [
   MdListModule, MdMenuModule, MdTooltipModule,
   MdSlideToggleModule, MdInputModule, MdCheckboxModule,
   MdToolbarModule, MdSnackBarModule, MdSidenavModule,
-  MdTabsModule, MdSelectModule, MdChipsModule
+  MdTabsModule, MdSelectModule, MdChipsModule, MdAutocompleteModule, MdNativeDateModule, MdDatepickerModule,
 ];
 
 const COVALENT_MODULES: any[] = [
   CovalentDataTableModule, CovalentMediaModule, CovalentLoadingModule,
   CovalentNotificationsModule, CovalentLayoutModule, CovalentMenuModule,
   CovalentPagingModule, CovalentSearchModule, CovalentStepsModule,
-  CovalentCommonModule, CovalentDialogsModule, CovalentMessageModule, CovalentExpansionPanelModule
+  CovalentCommonModule, CovalentDialogsModule, CovalentMessageModule,
+  CovalentExpansionPanelModule, CovalentJsonFormatterModule,
 ];
 
 const CHART_MODULES: any[] = [
@@ -57,6 +60,8 @@ const CHART_MODULES: any[] = [
 
 const COMPONENTS: any[] = [
   ModuleSelectorComponent,
+  UsoCfdiFieldComponent,
+  ComentarioFieldComponent
 ]
 
 @NgModule({
@@ -76,7 +81,9 @@ const COMPONENTS: any[] = [
     PageFooterComponent,
     NavListPageComponent,
     NavPageComponent,
-    AddressPipe
+    AddressPipe,
+    ComentarioFieldComponent,
+    UsoCfdiFieldComponent
   ],
   exports: [
     ANGULAR_MODULES,

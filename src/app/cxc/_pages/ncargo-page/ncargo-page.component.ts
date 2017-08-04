@@ -12,6 +12,7 @@ import {NotaDeCargo} from '../../models/nota-de-cargo';
 export class NcargoPageComponent implements OnInit {
 
   notas$: Observable<NotaDeCargo[]>;
+  selected: NotaDeCargo = null;
 
   constructor(service: NotasDeCargoService) {
     this.notas$ = service.list({tipo: 'CRE'});
@@ -22,6 +23,10 @@ export class NcargoPageComponent implements OnInit {
 
   onSearch(term: string) {
     console.log('Buscando notas de cargo....')
+  }
+
+  onSelect(nota: NotaDeCargo) {
+    this.selected = nota;
   }
 
 }

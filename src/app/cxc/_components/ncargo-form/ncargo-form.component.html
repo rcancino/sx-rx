@@ -1,0 +1,71 @@
+<form [formGroup]="form" novalidate >
+
+  <div layout="row" layout-margin>
+
+    <div flex >
+
+      <sx-cliente-field [parent]="form"></sx-cliente-field>
+
+      <div layout="row">
+        <div flex>
+          <sx-ncargo-tipo [parent]="form"></sx-ncargo-tipo>
+        </div>
+        <div flex>
+          <sx-tipo-cartera [parent]="form"></sx-tipo-cartera>
+        </div>
+      </div>
+
+      <div layout="row" layout-align="start center">
+
+        <div flex="30">
+          <md-input-container >
+            <input mdInput [mdDatepicker]="picker" placeholder="Fecha" formControlName="fecha">
+            <button mdSuffix [mdDatepickerToggle]="picker"></button>
+          </md-input-container>
+          <md-datepicker #picker></md-datepicker>
+        </div>
+
+        <div flex="70" >
+          <sx-uso-cfdi-field [parent]="form"></sx-uso-cfdi-field>
+        </div>
+
+      </div>
+
+      <sx-comentario-field [parent]="form" ></sx-comentario-field>
+
+
+      <div layout>
+        <md-input-container flex>
+          <input mdInput placeholder="Cargo"  value="{{form.get('cargo').value | percent }}" disabled>
+        </md-input-container>
+        <md-input-container flex>
+          <input mdInput placeholder="Importe"  value="{{form.get('importe').value | currency:'USD':true }}" disabled>
+        </md-input-container>
+        <md-input-container flex>
+          <input mdInput placeholder="Impuesto"  value="{{form.get('impuesto').value | currency:'USD':true }}" disabled>
+        </md-input-container>
+        <md-input-container flex>
+          <input mdInput placeholder="Total"  value="{{form.get('total').value | currency:'USD':true }}" disabled>
+        </md-input-container>
+      </div>
+
+    </div>
+
+    <!--<div flex style="border: 1px solid #777;">-->
+    <div flex>
+
+      <sx-selector-de-facturas [cliente]="selectedCliente"   (add)="addFactura($event)">
+      </sx-selector-de-facturas>
+
+      <sx-partidas-list [parent]="form" [partidas]="control.value" (delete)="onRemove($event)"></sx-partidas-list>
+    </div>
+
+
+
+  </div>
+
+
+</form>
+
+<td-json-formatter [data]="form.value" [levelsOpen]="0">
+</td-json-formatter>
