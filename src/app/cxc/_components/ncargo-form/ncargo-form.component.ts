@@ -49,7 +49,6 @@ export class NcargoFormComponent implements OnInit, OnDestroy {
       .subscribe( value => {
         value ? this.cliente.disable() : this.cliente.enable();
         this.actualizar();
-        this.actualizarFacturas();
       });
   }
 
@@ -79,14 +78,6 @@ export class NcargoFormComponent implements OnInit, OnDestroy {
     return this.form.get('cliente');
   }
 
-  actualizar() {
-    const conceptos: Array<NotaDeCargoConcepto> = this.control.getRawValue();
-    const importe = _.sumBy(conceptos, 'importe') ;
-    const impuesto = _.sumBy(conceptos, 'impuesto');
-    const total = importe + impuesto;
-    this.form.patchValue({importe, impuesto, total})
-  }
-
   get control() {
     return this.form.get('partidas') as FormArray;
   }
@@ -110,11 +101,14 @@ export class NcargoFormComponent implements OnInit, OnDestroy {
 
   onRemove(index: number) {
     this.control.removeAt(index);
-    this.actualizarFacturas();
   }
 
-  actualizarFacturas() {
-    // const cxcs = this.conceptos.map(it => it.cxc);
+  actualizar() {
+    const conceptos: Array<NotaDeCargoConcepto> = this.control.getRawValue();
+    const importe = _.sumBy(conceptos, 'importe') ;
+    const impuesto = _.sumBy(conceptos, 'impuesto');
+    const total = importe + impuesto;
+    this.form.patchValue({importe, impuesto, total})
     this.facturas = _.keyBy(this.control.getRawValue().map(it => it.cxc), 'id');
     console.log('Facturas seleccionadas: ', this.facturas);
   }

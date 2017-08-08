@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {CxcMainPageComponent} from './_pages/cxc-main-page/cxc-main-page.component';
 import {NcargoPageComponent} from './_pages/ncargo-page/ncargo-page.component';
 import {NcargoCreateComponent} from './_pages/ncargo-create/ncargo-create.component';
+import {NcreditoPageComponent} from './_pages/ncredito-page/ncredito-page.component';
+import {NcreditoCreateComponent} from './_pages/ncredito-create/ncredito-create.component';
 
 const routes: Routes = [
   {
@@ -19,6 +21,14 @@ const routes: Routes = [
           {
             path: 'notasDeCargo/create',
             component: NcargoCreateComponent
+          },
+          {
+            path: 'notaDeCredito',
+            component: NcreditoPageComponent
+          },
+          {
+            path: 'notaDeCredito/create',
+            component: NcreditoCreateComponent
           }
         ]
       }

@@ -15,12 +15,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor(public media: TdMediaService,
               private _titleService: Title) {
-    //this.application$ = store.select(fromRoot.getApplication).delay(500);
-    this.application$ = Observable.of({
-	    nombre: 'SIIPAP-Rx ',
-	    descripcion: 'Sistema de administración SIIPAP Rx cloud service', 
-	    image: "url('https://static.pexels.com/photos/265087/pexels-photo-265087.jpeg)"
-	  });
+    // this.application$ = store.select(fromRoot.getApplication).delay(500);
+    this.application$ = Observable.of(
+      {
+        nombre: 'SIIPAP-Rx ',
+	      descripcion: 'Sistema de administración SIIPAP Rx cloud service',
+	      image: "url('https://static.pexels.com/photos/265087/pexels-photo-265087.jpeg)"
+	    });
    }
 
   ngOnInit() {}
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // broadcast to all listener observables when loading the page
     this.media.broadcast();
     this._titleService.setTitle( 'SIIPAP-Rx' );
-    
+
   }
 
 }

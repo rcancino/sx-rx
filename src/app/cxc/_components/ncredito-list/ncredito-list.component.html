@@ -1,0 +1,18 @@
+<md-list dense>
+  <ng-template let-nota let-last="last" ngFor [ngForOf]="notas">
+    <md-nav-list dense flex>
+      <a md-list-item (click)="show.emit(nota)" >
+        <md-icon md-list-avatar color="accent">apps</md-icon>
+        <h3 md-line> {{nota.cliente.nombre}}</h3>
+        <span flex></span>
+        <span hide-xs flex="40" class="tc-deep-orange-700"> Dcto: {{nota.documento}}</span>
+        <span hide-xs flex="60" class="text-right md-body-1 tc-grey-500 pad-right">
+          {{nota.fecha | date: 'dd/MM/yyyy'}}
+        </span>
+      </a>
+    </md-nav-list>
+
+    <md-divider md-inset *ngIf="!last"></md-divider>
+  </ng-template>
+
+</md-list>

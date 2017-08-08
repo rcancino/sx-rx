@@ -1,7 +1,8 @@
 <div [formGroup]="parent">
   <md-list formArrayName="partidas">
+    <h3 md-subheader>Partidas</h3>
 
-    <ng-template let-concepto let-index="index" let-last="last" ngFor [ngForOf]="partidas">
+    <ng-template let-concepto let-index="index" let-last="last" ngFor [ngForOf]="partidas" >
       <a md-list-item>
         <!--<md-icon md-list-avatar>layers</md-icon>-->
         <md-icon md-list-icon>layers</md-icon>
@@ -16,7 +17,10 @@
 
         <span flex></span>
         <span flex="30" >{{concepto.importe | number:'2.2'}}</span>
-        <button md-icon-button (click)="delete.emit(index)">
+        <button type="button" md-icon-button (click)="edit.emit(index)">
+          <md-icon>edit</md-icon>
+        </button>
+        <button type="button" md-icon-button (click)="delete.emit(index)">
           <md-icon>delete</md-icon>
         </button>
       </a>
@@ -24,5 +28,9 @@
     </ng-template>
 
   </md-list>
+  <td-message #message *ngIf=""
+      label="Registr cuando menos un concepto (partida)"
+      icon="warning" color="accent" [opened]="true">
+  </td-message>
 </div>
 

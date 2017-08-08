@@ -1,9 +1,10 @@
-<div layout="row" [formGroup]="parent">
-  <md-input-container flex>
+<ng-container [formGroup]="parent">
+
+  <md-input-container class="block">
     <input type="text" mdInput
            formControlName="cliente"
-           placeholder="Seleccione un cliente"
-           required
+           placeholder="Cliente"
+           [required]="required"
            [mdAutocomplete]="auto">
     <md-error>
       El cliente es mandatorio
@@ -11,9 +12,8 @@
   </md-input-container>
 
   <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayFn">
-    <md-option *ngFor="let cliente of clientes" [value]="cliente">
+    <md-option *ngFor="let cliente of clientes$ | async" [value]="cliente">
       {{ cliente.nombre }}
     </md-option>
   </md-autocomplete>
-</div>
-
+</ng-container>

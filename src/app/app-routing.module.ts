@@ -20,6 +20,7 @@ const routes: Routes = [
       // { path: 'proveedores', loadChildren: './proveedores/proveedores.module#ProveedoresModule'},
       { path: 'clientes', loadChildren: './clientes/clientes.module#ClientesModule'},
       { path: 'cxc', loadChildren: './cxc/cxc.module#CxcModule'},
+      { path: 'security', loadChildren: './security/security.module#SecurityModule'},
       {
         path: '',
         redirectTo: '/home',

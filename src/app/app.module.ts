@@ -20,6 +20,7 @@ import {AuthModule} from './_auth/auth.module';
 import {AuthInterceptor} from './_auth/services/authInterceptor';
 import { GlobalErrorHandler } from './global-error-handler';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -30,7 +31,6 @@ import { GlobalErrorHandler } from './global-error-handler';
     HttpModule,
     HttpClientModule,
     AppRoutingModule,
-
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer
      * function or object map of reducer functions. If passed an object of
@@ -71,7 +71,8 @@ import { GlobalErrorHandler } from './global-error-handler';
 
     CoreModule,
 
-    AuthModule.forRoot()
+    AuthModule.forRoot(),
+
   ],
   providers: [
     [

@@ -1,0 +1,115 @@
+<form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div layout="row" >
+
+    <div flex="50" layout="column" >
+
+      <sx-cliente-field [parent]="form" required="true" flex class="cliente"></sx-cliente-field>
+
+      <div layout layout-align="start center" layout-padding>
+
+        <md-input-container flex>
+          <input mdInput [mdDatepicker]="picker" placeholder="Fecha" formControlName="fecha">
+          <button mdSuffix [mdDatepickerToggle]="picker"></button>
+        </md-input-container>
+        <md-datepicker #picker></md-datepicker>
+
+        <sx-moneda-field [parent]="form" flex></sx-moneda-field>
+        <sx-tipo-de-cambio [parent]="form" flex></sx-tipo-de-cambio>
+
+      </div>
+
+      <div layout layout-align="start center" layout-padding>
+
+        <md-select placeholder="Tipo" formControlName="tipo" flex>
+          <md-option *ngFor="let t of ['DESCUENTO','BONIFICACION','DEVOLUCION']" [value]="t">
+            {{t}}
+          </md-option>
+        </md-select>
+
+        <md-select placeholder="Sub tipo" formControlName="subTipo" flex>
+          <md-option *ngFor="let t of ['ESPECIAL', 'PRONTO_PAGO', 'PROMOCION ESPECIAL','CUMPLIMIENTO DE CUOTA', 'OTRO']" [value]="t">
+            {{t}}
+          </md-option>
+        </md-select>
+
+        <md-input-container flex>
+          <input type="text" mdInput formControlName="descuento" placeholder="Descuento">
+        </md-input-container>
+      </div>
+
+      <div layout layout-align="start center" layout-padding>
+
+        <sx-uso-cfdi-field [parent]="form" flex></sx-uso-cfdi-field>
+      </div>
+
+      <div layout layout-align="start center" layout-padding>
+        <sx-comentario-field [parent]="form" maxlength="100" flex></sx-comentario-field>
+
+      </div>
+
+      <div layout>
+        <md-input-container flex>
+          <input mdInput placeholder="Importe"  value="{{form.get('importe').value | currency:'USD':true }}" disabled>
+        </md-input-container>
+        <md-input-container flex>
+          <input mdInput placeholder="Impuesto"  value="{{form.get('impuesto').value | currency:'USD':true }}" disabled>
+        </md-input-container>
+        <md-input-container flex>
+          <input mdInput placeholder="Total"  value="{{form.get('total').value | currency:'USD':true }}" disabled>
+        </md-input-container>
+      </div>
+
+
+    </div>
+
+    <div flex="50">
+
+      <sx-selector-de-facturas [cliente]="selectedCliente"   (add)="addFactura($event)">
+      </sx-selector-de-facturas>
+
+      <sx-ncredito-form-partidas
+        [parent]="form"
+        [partidas]="control.value"
+        (delete)="onRemove($event)"
+        (edit)="onEdit($event)">
+      </sx-ncredito-form-partidas>
+
+    </div>
+  </div>
+
+
+
+  <md-card-actions>
+    <button type="submit" md-button color="accent" class="text-upper"
+            [disabled]="(form.invalid || form.touched)">
+      Salvar
+    </button>
+
+    <button md-button class="text-upper" [disabled]="(form.pristine )"
+            type="reset" (click)="revert()">
+      Limpiar
+    </button>
+
+    <button md-button class="text-upper">Cancelar</button>
+  </md-card-actions>
+
+</form>
+
+<!--<td-json-formatter [data]="form.value" [levelsOpen]="0">
+</td-json-formatter>-->
+<div layout="row">
+  <div flex>
+    <pre>{{form.value | json}}</pre>
+  </div>
+  <div flex>
+    <p>Valid: {{form.valid}}</p>
+    <p>Invalid: {{form.invalid}}</p>
+    <p>Pristine: {{form.pristine}}</p>
+    <p>Touched: {{form.touched}}</p>
+    <p>Errors: {{form.errors | json}}</p>
+  </div>
+</div>
+
+
+

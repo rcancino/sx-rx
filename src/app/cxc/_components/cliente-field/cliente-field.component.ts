@@ -4,6 +4,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Cliente} from '../../../clientes/models/cliente';
 import {Subscription} from 'rxjs/Subscription';
 import {environment} from '../../../../environments/environment';
+import {Observable} from 'rxjs/Observable';
 
 const mapClientes = (clientes: Cliente[]) => {
   const res = clientes.map( cliente => {
@@ -25,36 +26,28 @@ export class ClienteFieldComponent implements OnInit, OnDestroy {
 
   @Input() parent: FormGroup;
 
-  private subscription: Subscription;
+  @Input() required = false;
 
-  clientes: Cliente[] = [];
+  clientes$: Observable<Cliente[]>;
 
   readonly apiUrl = environment.apiUrl + '/clientes';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.subscription = this.parent.get('cliente').valueChanges
+    this.clientes$ = this.parent.get('cliente').valueChanges
       .debounceTime(300)
       .distinctUntilChanged()
-      .subscribe( value => {
-        this.findClientes(value);
-      });
+      .switchMap(value => this.lookupClientes(value));
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  ngOnDestroy() {}
 
-
-  findClientes(value: string) {
-    this.http.get<Cliente[]>(this.apiUrl,
+  lookupClientes(value: string): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.apiUrl,
       {params: new HttpParams().set('term', value)})
-      .map( mapClientes )
-      .subscribe( res => this.clientes = res);
+      .map( mapClientes );
   }
-
-
 
   displayFn(cliente: Cliente) {
     return cliente ? cliente.nombre : cliente;

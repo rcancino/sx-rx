@@ -15,6 +15,13 @@ export class CxcMainPageComponent implements OnInit {
       icon:  'receipt',
       tooltip: 'Notas de cargo a clientes'
     },
+    {
+      route: 'notaDeCredito',
+      title: 'Nota de crédito',
+      descripcion: 'Descuentos, Devoluciones, Bonificaciones',
+      icon: 'receipt',
+      tooltip: 'Notas de crédito'
+    }
   ];
 
   constructor() { }

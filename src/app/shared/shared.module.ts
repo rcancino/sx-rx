@@ -28,6 +28,8 @@ import { AddressPipe } from './pipes/address.pipe';
 import { ModuleSelectorComponent } from './module-selector/module-selector.component';
 import { ComentarioFieldComponent } from './_fields/comentario-field/comentario-field.component';
 import { UsoCfdiFieldComponent } from './_fields/uso-cfdi-field/uso-cfdi-field.component';
+import { TipoDeCambioComponent } from './_fields/tipo-de-cambio/tipo-de-cambio.component';
+import { MonedaFieldComponent } from './_fields/moneda-field/moneda-field.component';
 
 
 const FLEX_LAYOUT_MODULES: any[] = [
@@ -61,7 +63,9 @@ const CHART_MODULES: any[] = [
 const COMPONENTS: any[] = [
   ModuleSelectorComponent,
   UsoCfdiFieldComponent,
-  ComentarioFieldComponent
+  ComentarioFieldComponent,
+  TipoDeCambioComponent,
+  MonedaFieldComponent,
 ]
 
 @NgModule({
@@ -82,8 +86,6 @@ const COMPONENTS: any[] = [
     NavListPageComponent,
     NavPageComponent,
     AddressPipe,
-    ComentarioFieldComponent,
-    UsoCfdiFieldComponent
   ],
   exports: [
     ANGULAR_MODULES,

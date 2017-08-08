@@ -5,11 +5,23 @@
   </button>
 
 
-  <!-- <div td-toolbar-content layout="row" layout-align="start center" flex>
+   <div td-toolbar-content layout="row" layout-align="start center" flex>
     <span hide-xs></span>
     <span flex ></span>
-    <button md-icon-button > <md-icon>more_vert</md-icon></button>
-  </div> -->
+     <span>
+      <button md-icon-button [mdMenuTriggerFor]="toolbarMenu"><md-icon>more_vert</md-icon></button>
+      <md-menu #toolbarMenu="mdMenu">
+        <button md-menu-item>
+          <md-icon>settings</md-icon>
+          <span>Configuración</span>
+        </button>
+        <a md-menu-item routerLink="/security">
+          <md-icon>tune</md-icon>
+          <span>Sistemas</span>
+        </a>
+      </md-menu>
+    </span>
+  </div>
 
   <div layout="row" *ngIf="application$ | async; else loadingPanel; let application">
 

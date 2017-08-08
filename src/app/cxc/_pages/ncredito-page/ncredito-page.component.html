@@ -1,0 +1,47 @@
+<div layout="row">
+  <div flex-gt-sm="60" >
+    <md-card *tdLoading="'clientes-search'; type:'circle'; strategy:'overlay'; color:'accent'">
+      <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+
+        <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+          <span class="md-title">Notas de credito</span>
+        </span>
+
+        <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Filtrar"
+                       (searchDebounce)="onSearch($event)" flex>
+        </td-search-box>
+
+        <span>
+          <button md-icon-button [mdMenuTriggerFor]="toolbarMenu"><md-icon>more_vert</md-icon></button>
+          <md-menu #toolbarMenu="mdMenu">
+            <button md-menu-item>
+              <md-icon>settings</md-icon>
+              <span>Configuración</span>
+            </button>
+          </md-menu>
+        </span>
+
+      </div>
+
+      <md-divider></md-divider>
+
+      <md-card-content >
+        <sx-ncredito-list [notas]="notas$ | async" (show)="onSelect($event)">
+        </sx-ncredito-list>
+      </md-card-content>
+
+    </md-card>
+    <a md-fab color="accent" class="mat-fab-bottom-right" [routerLink]="['create']">
+      <md-icon>add</md-icon>
+    </a>
+  </div>
+
+  <div flex-gt-sm="40">
+    <sx-nota-de-cargo-info [nota]="selected">
+
+    </sx-nota-de-cargo-info>
+  </div>
+
+</div>
+
+
