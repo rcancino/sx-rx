@@ -1,3 +1,62 @@
-<p>
-  users-page works!
-</p>
+<div layout="row">
+  <div flex>
+    <md-card>
+      <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm" >
+    <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+      <span class="md-title">Usuarios registrados</span>
+    </span>
+        <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm"
+                       placeholder="Filtrar"
+                       (searchDebounce)="filter($event)" flex>
+        </td-search-box>
+        <span>
+      <button md-icon-button [mdMenuTriggerFor]="toolbarMenu"><md-icon>filter_list</md-icon></button>
+      <md-menu #toolbarMenu="mdMenu">
+        <button md-menu-item>
+          <md-icon>settings</md-icon>
+          <span>Activos</span>
+        </button>
+      </md-menu>
+    </span>
+      </div>
+      <md-divider></md-divider>
+      <md-list>
+        <ng-container *tdLoading="let usuarios until filtrados$ | async; type:'circular'; color:'primary'">
+          <ng-template let-user let-last="last" ngFor [ngForOf]="usuarios">
+            <md-list-item>
+              <md-icon md-list-avatar>person</md-icon>
+              <h3 md-line> {{user.nombre}} </h3>
+              <p md-line> {{user.username}} </p>
+              <span flex></span>
+              <span hide-xs hide-sm hide-md flex-gt-xs="60" flex-xs="40" layout-gt-xs="row">
+              <div class="md-caption tc-grey-500" flex-gt-xs="50" [ngClass]="{'tc-green-700':user.enabled,'tc-dark-red-500':!user.enabled}">
+                {{ user.enabled ? 'Activo' : 'Suspendido'}}
+              </div>
+              <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ user?.lastAccess | timeAgo }}O2 </div>
+            </span>
+              <button md-icon-button (click)="showInfo(user)" (dblclick)="showInfo(null)">
+                <md-icon>info</md-icon>
+              </button>
+              <button md-icon-button (click)="edit(user)">
+                <md-icon>edit</md-icon>
+              </button>
+            </md-list-item>
+            <md-divider *ngIf="!last" md-inset></md-divider>
+          </ng-template>
+        </ng-container>
+      </md-list>
+    </md-card>
+    <a md-fab color="accent" class="mat-fab-bottom-right" [routerLink]="['create']">
+      <md-icon>add</md-icon>
+    </a>
+  </div>
+  <div flex>
+    <ng-container *ngIf="selected">
+      <md-card>
+        <md-card-title>User INFO</md-card-title>
+      </md-card>
+    </ng-container>
+  </div>
+</div>
+
+

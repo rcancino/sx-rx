@@ -11,4 +11,5 @@ export interface User {
   password: string;
   passwordExpired: boolean;
   username: string;
+  email?: string;
 }

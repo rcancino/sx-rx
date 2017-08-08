@@ -12,6 +12,8 @@ export const LOAD = '[Users List] Load users';
 export const LOAD_SUCCESS = '[Users List] Load users Success';
 export const LOAD_FAIL = '[Users List] Load users Fail';
 
+export const SELECT = '[User] Select';
+
 
 /**
  * Add User to Users list Actions

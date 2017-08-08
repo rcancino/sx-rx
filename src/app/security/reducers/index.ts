@@ -1,10 +1,12 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
+import * as fromUser from './user.reducer';
 import * as fromUsersList from './users-list.reducer';
 import * as fromRoot from '../../reducers';
 
 export interface UsersState {
-  usersList: fromUsersList.State
+  usersList: fromUsersList.State;
+  user: fromUser.State;
 }
 
 export interface State extends fromRoot.State {
@@ -12,7 +14,8 @@ export interface State extends fromRoot.State {
 }
 
 export const reducers = {
-  usersList: fromUsersList.reducer
+  usersList: fromUsersList.reducer,
+  user: fromUser.reducer
 };
 
 export const getUsersState = createFeatureSelector<UsersState>('users');
